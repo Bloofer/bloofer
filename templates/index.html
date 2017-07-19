@@ -12,10 +12,10 @@
     <title>Bloofer Blog</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/blog-home.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/blog-home.css') }}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,11 +78,11 @@
                     <a href="#">첫 번째 포스팅</a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php">jmyang</a>
+                    by <a href="#">jmyang</a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on July 19, 2017 at 12:00 PM</p>
                 <hr>
-                <img class="img-responsive" src="img/krab.png" alt="">
+                <img class="img-responsive" src="{{ url_for('static', filename='img/krab.png') }}" alt="">
                 <hr>
                 <p>가재치고 도랑잡고</p>
                 <a class="btn btn-primary" href="#">더 읽기 <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -132,7 +132,10 @@
                 <!-- Side Widget Well -->
                 <div class="well">
                     <h4>위젯 바</h4>
-                    <p>음 이쪽은 아직 어떻게 쓸 지 못정했다.</p>
+                    <p>
+                      {% block content %}
+                      {% endblock %}
+                    </p>
                 </div>
 
             </div>
@@ -157,10 +160,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
 </body>
 
