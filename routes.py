@@ -10,5 +10,9 @@ def home():
 def board():
   return render_template('board.html')
 
+@app.route('/gallery')
+def gallery():
+  return render_template('gallery.html')
+
 if __name__ == '__main__':
   app.run(debug=True)
