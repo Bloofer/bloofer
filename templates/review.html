@@ -9,13 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bloofer Blog</title>
+    <title>1 Col Portfolio - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ url_for('static', filename='css/blog-home.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/1-col-portfolio.css') }}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,14 +44,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/review">소프트웨어 리뷰</a>
-                    </li>
-                    <li><a href="/board">아무말 대잔치</a>
-                    </li>
-                    <li><a href="/gallery">사진 갤러리</a>
-                    </li>
-                    <li><a href="/profile">프로필</a>
-                    </li>
+                  <li><a href="/review">소프트웨어 리뷰</a>
+                  </li>
+                  <li><a href="/board">아무말 대잔치</a>
+                  </li>
+                  <li><a href="/gallery">사진 갤러리</a>
+                  </li>
+                  <li><a href="/profile">프로필</a>
+                  </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a target="_blank" href="https://github.com/Bloofer"><img width="20" class="img-responsive" src="{{ url_for('static', filename='img/corgi.png') }}" alt=""></a></li>
@@ -68,8 +68,8 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">아무말 대잔치
-                    <small>Since 2017-07-20</small>
+                <h1 class="page-header">소프트웨어 리뷰
+                    <small>내가 직접 써 본 소프트웨어에 대한 진솔한 리뷰</small>
                 </h1>
             </div>
         </div>
@@ -77,10 +77,17 @@
 
         <!-- Project One -->
         <div class="row">
-            <div class="col-md-5">
-                <h3>첫 게시물</h3>
-                <h4>2017-07-20 jmyang</h4>
-                <p>가재잡고 도랑치고 첫번째 게시물</p>
+            <div class="col-md-3">
+                <a href="#">
+                    <!-- rendered image size will be 300X300 -->
+                    <img class="img-responsive" src="https://lh5.googleusercontent.com/-e21c4lqZylg/AAAAAAAAAAI/AAAAAAAABEQ/NHC694RlDtU/photo.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <h3>Atom</h3>
+                <h4>Github</h4>
+                <p>깃헙에서 만든 에디터. 예쁜 UI와 다양한 플러그인이 장점이다....</p>
+                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->
@@ -89,10 +96,16 @@
 
         <!-- Project Two -->
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-3">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
                 <h3>Project Two</h3>
                 <h4>Subheading</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->
@@ -101,10 +114,16 @@
 
         <!-- Project Three -->
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-3">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
                 <h3>Project Three</h3>
                 <h4>Subheading</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
+                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->
@@ -113,10 +132,17 @@
 
         <!-- Project Four -->
         <div class="row">
-            <div class="col-md-5">
+
+            <div class="col-md-3">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
                 <h3>Project Four</h3>
                 <h4>Subheading</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
+                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->
@@ -125,10 +151,16 @@
 
         <!-- Project Five -->
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-3">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-9">
                 <h3>Project Five</h3>
                 <h4>Subheading</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
+                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->
