@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import flickrphoto 
 
 app = Flask(__name__)
 
@@ -12,7 +13,27 @@ def board():
 
 @app.route('/gallery')
 def gallery():
-  return render_template('gallery.html')
+
+  photos = flickrphoto.getPhotos('12', 1)
+
+  # total page numbers
+  pages = flickrphoto.getPages('12')
+  page_n = (pages // 5) + 1
+  page_r = pages % 5
+
+  return render_template('photo.html', r1_photo=photos[0:4], r2_photo=photos[4:8], r3_photo=photos[8:12], pages=pages, page_n=page_n, page_r=page_r, page_num=1)
+
+@app.route('/gallery/<int:page_num>')
+def gallery_page(page_num):
+
+  photos = flickrphoto.getPhotos('12', page_num)
+
+  # total page numbers
+  pages = flickrphoto.getPages('12')
+  page_n = (pages // 5) + 1
+  page_r = pages % 5
+
+  return render_template('photo.html', r1_photo=photos[0:4], r2_photo=photos[4:8], r3_photo=photos[8:12], pages=pages, page_n=page_n, page_r=page_r, page_num=page_num)
 
 @app.route('/profile')
 def profile():
@@ -24,3 +45,4 @@ def review():
 
 if __name__ == '__main__':
   app.run(debug=True)
+  
