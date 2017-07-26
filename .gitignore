@@ -1,0 +1,5 @@
+# compiled python files
+*.pyc
+
+# flickr private key file
+mykey.py
