@@ -1,0 +1,97 @@
+{% extends "gallery.html" %}
+
+{% block row1 %}
+  {% for o_photo, m_photo in r1_photo %}
+  <div class="col-md-3 portfolio-item">
+      <a href="{{ o_photo }}">
+        <img class="img-responsive" src="{{ m_photo }}" alt=""> 
+      </a>
+  </div>
+  {% endfor %}
+{% endblock %}
+
+{% block row2 %}
+  {% for o_photo, m_photo in r2_photo %}
+  <div class="col-md-3 portfolio-item">
+    <a href="{{ o_photo }}">
+      <img class="img-responsive" src="{{ m_photo }}" alt="">  
+    </a>
+  </div>
+  {% endfor %}
+{% endblock %}
+
+{% block row3 %}
+  {% for o_photo, m_photo in r3_photo %}
+  <div class="col-md-3 portfolio-item">
+    <a href="{{ o_photo }}">
+      <img class="img-responsive" src="{{ m_photo }}" alt="">  
+    </a>
+  </div>
+  {% endfor %}
+{% endblock %}
+
+{% block paging %}
+  {% if (((page_num-1) // 5) + 1) < page_n  %}
+
+    {% if page_num <= 5 %}
+      <li>
+          <a href="#">&laquo;</a>
+      </li>
+    {% else %}
+      <li>
+          <a href="/gallery/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+      </li>
+    {% endif %}
+
+    {% for p in range( (((page_num-1)//5)*5)+1, (((page_num-1)//5)*5)+6 ) %}
+      {% if p == page_num %}
+      <li class="active">
+          <a href="#">{{ p }}</a>
+      </li>
+      {% else %}
+      <li>
+          <a href="/gallery/{{ p }}">{{ p }}</a>       
+      </li> 
+      {% endif %}
+    {% endfor %}
+
+    {% if pages > ((((page_num-1)//5)+1)*5) %}
+      <li>
+          <a href="/gallery/{{ ((((page_num-1)//5)+1)*5)+1 }}">&raquo;</a>
+      </li>
+    {% else %}
+      <li>
+          <a href="#">&raquo;</a>
+      </li>
+    {% endif %}
+
+  {% else %}
+
+    {% if page_num <= 5 %}
+      <li>
+          <a href="#">&laquo;</a>
+      </li>
+    {% else %}
+      <li>
+          <a href="/gallery/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+      </li>
+    {% endif %}
+
+    {% for p in range( (((page_num-1)//5)*5)+1, pages+1 ) %}
+      {% if p == page_num %}
+      <li class="active">
+          <a href="#">{{ p }}</a>
+      </li>
+      {% else %}
+      <li>
+          <a href="/gallery/{{ p }}">{{ p }}</a>       
+      </li> 
+      {% endif %}
+    {% endfor %}
+
+     <li>
+          <a href="#">&raquo;</a>
+     </li>
+
+  {% endif %}
+{% endblock %}
