@@ -1,7 +1,8 @@
 {% extends "index.html" %}
 {% block content %}
-  <div class="jumbo">
-    <h3>최신 이슈<h3>
-    <h4>이 위젯 바에는 본인 깃헙 페이지의 최신 이슈를 올릴까 합니다.<h4>
-  </div>
+<h4>Blog Features</h4>
+<br>
+<p><a target="_blank" href="http://flask.pocoo.org"><img width='30' src="{{ url_for('static', filename='img/flask.png') }}" alt=""></a> Python Flask Framework</p>
+<p><a target="_blank" href="https://www.flickr.com"><img width='30' src="{{ url_for('static', filename='img/flickr.png') }}" alt=""></a>&nbsp; Flickr Image Server</p>
+<p><a target="_blank" href="http://getbootstrap.com"><img width='30' src="{{ url_for('static', filename='img/Bootstrap.png') }}" alt=""></a>&nbsp; Twitter Bootstrap Framework</p>
 {% endblock %}

@@ -23,17 +23,27 @@ def gallery():
 
   return render_template('photo.html', r1_photo=photos[0:4], r2_photo=photos[4:8], r3_photo=photos[8:12], pages=pages, page_n=page_n, page_r=page_r, page_num=1)
 
-@app.route('/gallery/<int:page_num>')
+@app.route('/gallery/<string:page_num>')
 def gallery_page(page_num):
 
-  photos = flickrphoto.getPhotos('12', page_num)
+  if page_num == None:
+    return gallery()
 
-  # total page numbers
-  pages = flickrphoto.getPages('12')
-  page_n = (pages // 5) + 1
-  page_r = pages % 5
+  elif not page_num.isdigit():
+    return render_template('error.html')
 
-  return render_template('photo.html', r1_photo=photos[0:4], r2_photo=photos[4:8], r3_photo=photos[8:12], pages=pages, page_n=page_n, page_r=page_r, page_num=page_num)
+  else:
+    photos = flickrphoto.getPhotos('12', int(page_num))
+
+    # total page numbers
+    pages = flickrphoto.getPages('12')
+    page_n = (pages // 5) + 1
+    page_r = pages % 5
+
+    if (int(page_num) > 0) and (int(page_num) <= pages):
+      return render_template('photo.html', r1_photo=photos[0:4], r2_photo=photos[4:8], r3_photo=photos[8:12], pages=pages, page_n=page_n, page_r=page_r, page_num=int(page_num))
+    else:
+      return render_template('error.html')
 
 @app.route('/profile')
 def profile():
