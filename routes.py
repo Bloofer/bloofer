@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 import flickrphoto 
+import mdparser
+import requests
 
 app = Flask(__name__)
 
@@ -9,7 +11,34 @@ def home():
 
 @app.route('/board')
 def board():
-  return render_template('board.html')
+  
+  pages = mdparser.getPages()
+  page_n = (pages // 5) + 1
+  page_r = pages % 5
+  
+  md_posts = mdparser.convert('1')
+  return render_template('post.html', md_posts=md_posts, pages=pages, page_n=page_n, page_r=page_r, page_num=1)
+
+@app.route('/board/<string:page_num>')
+def board_page(page_num):
+ 
+  # exception handling
+  if page_num == None:
+    return board()
+  elif not page_num.isdigit():
+    return render_template('error.html')
+
+  else:
+    # total page numbers
+    pages = mdparser.getPages()
+    page_n = (pages // 5) + 1
+    page_r = pages % 5
+ 
+    if (int(page_num) > 0) and (int(page_num) <= pages):
+      md_posts = mdparser.convert(page_num)
+      return render_template('post.html', md_posts=md_posts, pages=pages, page_n=page_n, page_r=page_r, page_num=int(page_num))
+    else:
+      return render_template('error.html')
 
 @app.route('/gallery')
 def gallery():
@@ -26,9 +55,9 @@ def gallery():
 @app.route('/gallery/<string:page_num>')
 def gallery_page(page_num):
 
+  # exception handling
   if page_num == None:
     return gallery()
-
   elif not page_num.isdigit():
     return render_template('error.html')
 

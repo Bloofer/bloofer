@@ -1,0 +1,79 @@
+{% extends "board.html" %}
+
+{% block posts %}
+  {% for md_post in md_posts %}
+  <div class="row">
+      <div class="col-md-5">
+          {{ md_post|safe }}
+      </div>
+  </div>
+  <hr>
+  {% endfor %}
+{% endblock %}
+
+{% block paging %}
+  {% if (((page_num-1) // 5) + 1) < page_n  %}
+
+    {% if page_num <= 5 %}
+      <li>
+        <a href="#">&laquo;</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="/board/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+      </li>
+    {% endif %}
+
+    {% for p in range( (((page_num-1)//5)*5)+1, (((page_num-1)//5)*5)+6 ) %}
+      {% if p == page_num %}
+        <li class="active">
+          <a href="#">{{ p }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="/board/{{ p }}">{{ p }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {% if pages > ((((page_num-1)//5)+1)*5) %}
+      <li>
+        <a href="/board/{{ ((((page_num-1)//5)+1)*5)+1 }}">&raquo;</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="#">&raquo;</a>
+      </li>
+    {% endif %}
+
+  {% else %}
+
+    {% if page_num <= 5 %}
+      <li>
+        <a href="#">&laquo;</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="/board/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+      </li>
+    {% endif %}
+
+    {% for p in range( (((page_num-1)//5)*5)+1, pages+1 ) %}
+      {% if p == page_num %}
+        <li class="active">
+          <a href="#">{{ p }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="/board/{{ p }}">{{ p }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    <li>
+      <a href="#">&raquo;</a>
+    </li>
+
+  {% endif %}
+{% endblock %}
+~

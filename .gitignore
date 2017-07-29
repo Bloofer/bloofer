@@ -3,3 +3,6 @@
 
 # flickr private key file
 mykey.py
+
+# apache2 wsgi file
+routes.wsgi
