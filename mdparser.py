@@ -1,4 +1,4 @@
-import routes
+import blooferblog
 import os
 
 def convert(page_num):
@@ -17,7 +17,7 @@ def convert(page_num):
   # if having 8 posts on latest page, originally renders 8 posts per page
   if lp_fnum == 8:
     for n in range(getFileNum(str(p_num)),0,-1):
-      md_file = routes.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
+      md_file = blooferblog.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
       u_mdfile = md_file.read().decode('utf-8')
       code_list.append(markdown.markdown(u_mdfile))
 
@@ -31,7 +31,7 @@ def convert(page_num):
       # case total page num is 1
       if getPages('posts') == 1:
         for n in range(getFileNum(str(p_num)),0,-1):
-          md_file = routes.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
+          md_file = blooferblog.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
           u_mdfile = md_file.read().decode('utf-8')
           code_list.append(markdown.markdown(u_mdfile))
 
@@ -40,12 +40,12 @@ def convert(page_num):
       # normal case
       else:
         for n in range(getFileNum(str(p_num)),0,-1):
-          md_file = routes.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
+          md_file = blooferblog.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
           u_mdfile = md_file.read().decode('utf-8')
           code_list.append(markdown.markdown(u_mdfile))
 
         for n in range(getFileNum(str(p_num-1)),lp_fnum,-1):
-          md_file = routes.app.open_resource('static/posts/'+str(p_num-1)+'/post'+str(n)+'.md')
+          md_file = blooferblog.app.open_resource('static/posts/'+str(p_num-1)+'/post'+str(n)+'.md')
           u_mdfile = md_file.read().decode('utf-8')
           code_list.append(markdown.markdown(u_mdfile))
 
@@ -54,12 +54,12 @@ def convert(page_num):
     # pages neither first(latest), nor last(oldest). (middle pages)
     elif (int(p_num) < getPages('posts')) and (int(p_num) > 1):
       for n in range((lp_fnum+1),0,-1):
-        md_file = routes.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
+        md_file = blooferblog.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
         u_mdfile = md_file.read().decode('utf-8')
         code_list.append(markdown.markdown(u_mdfile))
 
       for n in range(getFileNum(str(p_num)),lp_fnum,-1):
-        md_file = routes.app.open_resource('static/posts/'+str(p_num-1)+'/post'+str(n)+'.md')
+        md_file = blooferblog.app.open_resource('static/posts/'+str(p_num-1)+'/post'+str(n)+'.md')
         u_mdfile = md_file.read().decode('utf-8')
         code_list.append(markdown.markdown(u_mdfile))
 
@@ -68,7 +68,7 @@ def convert(page_num):
     # on the oldest page
     else:
       for n in range((lp_fnum),0,-1):
-        md_file = routes.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
+        md_file = blooferblog.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
         u_mdfile = md_file.read().decode('utf-8')
         code_list.append(markdown.markdown(u_mdfile))
 
@@ -81,7 +81,7 @@ def convert_rev(page_num):
 
   code_list = []
 
-  path, dirs, files = next(os.walk('/home/jmyang/www/routes/static/reviews/'))
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/reviews/'))
 
   # content number; count all review files 
   c_num = len(files) 
@@ -95,7 +95,7 @@ def convert_rev(page_num):
   # if having 8 posts on latest page, originally renders 8 posts per page
   if lp_fnum == 0 :
     for n in range(8+(8*(p_num-int(page_num))), 0+(8*(p_num-int(page_num))), -1):
-      md_file = routes.app.open_resource('static/reviews/post'+str(n)+'.md')
+      md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
       u_mdfile = md_file.read().decode('utf-8')
       code_list.append(markdown.markdown(u_mdfile))
 
@@ -107,7 +107,7 @@ def convert_rev(page_num):
     if int(page_num) == p_num:
       # case total page num is 1
       for n in range(lp_fnum, 0, -1):
-        md_file = routes.app.open_resource('static/reviews/post'+str(n)+'.md')
+        md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
         u_mdfile = md_file.read().decode('utf-8')
         code_list.append(markdown.markdown(u_mdfile))
 
@@ -116,25 +116,25 @@ def convert_rev(page_num):
     # on the normal page
     else:
       for n in range(8+(8*(p_num-int(page_num)))-(8-lp_fnum), 0+(8*(p_num-int(page_num)))-(8-lp_fnum), -1):
-        md_file = routes.app.open_resource('static/reviews/post'+str(n)+'.md')
+        md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
         u_mdfile = md_file.read().decode('utf-8')
         code_list.append(markdown.markdown(u_mdfile))
 
       return code_list
 
 def getPages(dir_name):
-  path, dirs, files = next(os.walk('/home/jmyang/www/routes/static/'+dir_name+'/'))
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/'+dir_name+'/'))
   num = len(dirs)
   return num
 
 def getPages_rev():
-  path, dirs, files = next(os.walk('/home/jmyang/www/routes/static/reviews/'))
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/reviews/'))
   fnum = len(files)
   num = ((fnum - 1) / 8) + 1
   return num
 
 def getFileNum(page_num):
-  path, dirs, files = next(os.walk('/home/jmyang/www/routes/static/posts/'+page_num+'/'))
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/posts/'+page_num+'/'))
   num = len(files)
   return num
  

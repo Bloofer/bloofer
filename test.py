@@ -1,4 +1,4 @@
-fil = open("/home/jmyang/www/routes/static/reviews/post1.md", "r")
+fil = open("/home/jmyang/www/blooferblog/static/reviews/post1.md", "r")
 nfil = []
 for line in fil:
   nfil.append(line)
