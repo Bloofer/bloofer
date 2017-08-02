@@ -75,40 +75,15 @@
                     <small>이것 저것 끄적이는 공간..</small>
                 </h1>
 
-                <!-- First Blog Post -->
-                <h2>
-                    <a href="#">첫 번째 포스팅</a>
-                </h2>
-                <p class="lead">
-                    by <a href="#">jmyang</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on July 19, 2017 at 12:00 PM</p>
-                <hr>
-                <img class="img-responsive" src="{{ url_for('static', filename='img/krab.png') }}" alt="">
-                <hr>
-                <p>가재치고 도랑잡고</p>
-                <a class="btn btn-primary" href="#">더 읽기 <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
+                <!-- Latest Blog Post -->
+                <h4>최근 등록된 게시물</h4>
+                {% block intro_cont %}
+                {% endblock %}
+                <a href="#"><p><span class="glyphicon glyphicon-hand-up"></span> 게시글 보러가기</p></a>
             </div>
 
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>블로그 검색</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
 
                 <!-- Blog Categories Well -->
                 <div class="well">

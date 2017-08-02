@@ -137,5 +137,19 @@ def getFileNum(page_num):
   path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/posts/'+page_num+'/'))
   num = len(files)
   return num
- 
+
+def getLtstFile():
+  import markdown
+
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/reviews/'))
+  fnum = len(files)
+  md_file = blooferblog.app.open_resource('static/reviews/post'+str(fnum)+'.md')
+  md_header = []
+  for line in md_file:
+    md_header.append(markdown.markdown(line.decode('utf-8')))
+    if len(md_header) == 3: break
+
+  return md_header
+
+
 

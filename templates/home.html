@@ -6,3 +6,9 @@
 <p><a target="_blank" href="https://www.flickr.com"><img width='30' src="{{ url_for('static', filename='img/flickr.png') }}" alt=""></a>&nbsp; Flickr Image Server</p>
 <p><a target="_blank" href="http://getbootstrap.com"><img width='30' src="{{ url_for('static', filename='img/Bootstrap.png') }}" alt=""></a>&nbsp; Twitter Bootstrap Framework</p>
 {% endblock %}
+
+{% block intro_cont %}
+  {% for i in intro %}
+    {{ i|safe }}
+  {% endfor %}
+{% endblock %}
