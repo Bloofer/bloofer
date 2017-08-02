@@ -2,7 +2,7 @@
 
 ##### 2017-07-30
 
-![alt text](https://media.giphy.com/media/dzaUX7CAG0Ihi/giphy.gif)
+<img class="img-responsive" src="https://media.giphy.com/media/dzaUX7CAG0Ihi/giphy.gif">
 
 드디어 첫 글을 써본다. 웹 앱 초기 설정을 마치고나서 블로그 포스팅 페이지를 만드는 데 생각보다 시간이 좀 더 걸리게 되었다.   
 가상서버를 구매한 지 벌써 일주일이 넘어가는 데 서버에 이것저것 초기부터 설정을 해주고 만들다 보니 정말 시간이 정신없이 지나갔다.  

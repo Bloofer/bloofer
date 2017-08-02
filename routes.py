@@ -12,7 +12,7 @@ def home():
 @app.route('/board')
 def board():
   
-  pages = mdparser.getPages()
+  pages = mdparser.getPages('posts')
   page_n = (pages // 5) + 1
   page_r = pages % 5
   
@@ -30,7 +30,7 @@ def board_page(page_num):
 
   else:
     # total page numbers
-    pages = mdparser.getPages()
+    pages = mdparser.getPages('posts')
     page_n = (pages // 5) + 1
     page_r = pages % 5
  
@@ -78,9 +78,36 @@ def gallery_page(page_num):
 def profile():
   return render_template('profile.html')
 
+@app.route('/review/<string:page_num>')
+def review_item(page_num):
+
+  # exception handling
+  if page_num == None:
+    return board()
+  elif not page_num.isdigit():
+    return render_template('error.html')
+
+  else:
+    # total page numbers
+    pages = mdparser.getPages_rev()
+    page_n = (pages // 5) + 1
+    page_r = pages % 5
+ 
+    if (int(page_num) > 0) and (int(page_num) <= pages):
+      md_reviews = mdparser.convert_rev(page_num)
+      return render_template('review_item.html', md_reviews=md_reviews, pages=pages, page_n=page_n, page_r=page_r, page_num=int(page_num))
+    else:
+      return render_template('error.html')
+
 @app.route('/review')
 def review():
-  return render_template('review.html')
+
+  pages = mdparser.getPages_rev()
+  page_n = (pages // 5) + 1
+  page_r = pages % 5
+  
+  md_reviews = mdparser.convert_rev('1')
+  return render_template('review_item.html', md_reviews=md_reviews, pages=pages, page_n=page_n, page_r=page_r, page_num=1)
 
 if __name__ == '__main__':
   app.run(debug=True)

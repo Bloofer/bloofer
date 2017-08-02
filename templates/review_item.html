@@ -1,10 +1,10 @@
-{% extends "board.html" %}
+{% extends "review.html" %}
 
-{% block posts %}
-  {% for md_post in md_posts %}
+{% block reviews %}
+  {% for md_review in md_reviews %}
   <div class="row">
       <div class="col-lg-12">
-          {{ md_post|safe }}
+          {{ md_review|safe }}
       </div>
   </div>
   <hr>
@@ -20,7 +20,7 @@
       </li>
     {% else %}
       <li>
-        <a href="/board/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+        <a href="/review/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
       </li>
     {% endif %}
 
@@ -31,14 +31,14 @@
         </li>
       {% else %}
         <li>
-          <a href="/board/{{ p }}">{{ p }}</a>
+          <a href="/review/{{ p }}">{{ p }}</a>
         </li>
       {% endif %}
     {% endfor %}
 
     {% if pages > ((((page_num-1)//5)+1)*5) %}
       <li>
-        <a href="/board/{{ ((((page_num-1)//5)+1)*5)+1 }}">&raquo;</a>
+        <a href="/review/{{ ((((page_num-1)//5)+1)*5)+1 }}">&raquo;</a>
       </li>
     {% else %}
       <li>
@@ -54,7 +54,7 @@
       </li>
     {% else %}
       <li>
-        <a href="/board/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+        <a href="/review/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
       </li>
     {% endif %}
 
@@ -65,7 +65,7 @@
         </li>
       {% else %}
         <li>
-          <a href="/board/{{ p }}">{{ p }}</a>
+          <a href="/review/{{ p }}">{{ p }}</a>
         </li>
       {% endif %}
     {% endfor %}
