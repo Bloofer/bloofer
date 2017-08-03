@@ -96,8 +96,12 @@ def convert_rev(page_num):
   if lp_fnum == 0 :
     for n in range(8+(8*(p_num-int(page_num))), 0+(8*(p_num-int(page_num))), -1):
       md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
-      u_mdfile = md_file.read().decode('utf-8')
-      code_list.append(markdown.markdown(u_mdfile))
+      md_header = []
+      for line in md_file:
+        md_header.append(markdown.markdown(line.decode('utf-8')))
+        if len(md_header) == 3: break
+
+      code_list.append(tuple(("post"+str(n) ,md_header)))
 
     return code_list
 
@@ -108,8 +112,12 @@ def convert_rev(page_num):
       # case total page num is 1
       for n in range(lp_fnum, 0, -1):
         md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
-        u_mdfile = md_file.read().decode('utf-8')
-        code_list.append(markdown.markdown(u_mdfile))
+        md_header = []
+        for line in md_file:
+          md_header.append(markdown.markdown(line.decode('utf-8')))
+          if len(md_header) == 3: break
+
+        code_list.append(tuple(("post"+str(n) ,md_header)))
 
       return code_list
 
@@ -117,8 +125,12 @@ def convert_rev(page_num):
     else:
       for n in range(8+(8*(p_num-int(page_num)))-(8-lp_fnum), 0+(8*(p_num-int(page_num)))-(8-lp_fnum), -1):
         md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
-        u_mdfile = md_file.read().decode('utf-8')
-        code_list.append(markdown.markdown(u_mdfile))
+        md_header = []
+        for line in md_file:
+          md_header.append(markdown.markdown(line.decode('utf-8')))
+          if len(md_header) == 3: break
+
+        code_list.append(tuple(("post"+str(n), md_header)))
 
       return code_list
 
@@ -149,7 +161,16 @@ def getLtstFile():
     md_header.append(markdown.markdown(line.decode('utf-8')))
     if len(md_header) == 3: break
 
-  return md_header
+  return tuple(("post"+str(fnum), md_header))
+
+def getArticle(aname):
+  import markdown
+
+  md_file = blooferblog.app.open_resource('static/reviews/'+aname+'.md')
+  u_mdfile = md_file.read().decode('utf-8')
+
+  return markdown.markdown(u_mdfile) 
+
 
 
 

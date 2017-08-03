@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-  intro = mdparser.getLtstFile()
-  return render_template('home.html', intro=intro)
+  iname, intro = mdparser.getLtstFile()
+  return render_template('home.html', iname=iname, intro=intro)
 
 @app.route('/board')
 def board():
@@ -109,6 +109,13 @@ def review():
   
   md_reviews = mdparser.convert_rev('1')
   return render_template('review_item.html', md_reviews=md_reviews, pages=pages, page_n=page_n, page_r=page_r, page_num=1)
+
+@app.route('/article/<string:aname>')
+def article(aname):
+
+  article = mdparser.getArticle(aname)
+
+  return render_template('article_item.html', article=article) 
 
 if __name__ == '__main__':
   app.run(debug=True)
