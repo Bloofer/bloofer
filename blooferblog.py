@@ -115,7 +115,7 @@ def article(aname):
 
   article = mdparser.getArticle(aname)
 
-  return render_template('article_item.html', article=article) 
+  return render_template('article_item.html', article=article, aname=aname) 
 
 if __name__ == '__main__':
   app.run(debug=True)

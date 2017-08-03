@@ -11,7 +11,7 @@
 *"So.. uh, how long is this going to take?"*  
 *"You can't rush art!"*  
   
-<img class="img-responsive" src="http://jmyang.kr/static/img/replys.JPG">  
+<img class="img-responsive" src="https://jmyang.kr/static/img/replys.JPG">  
 
 영화 '토이스토리2'에는 주인공 우디의 팔이 떨어져 인형 장인이 팔을 고쳐주는 장면이 있다. 오랜만에 영화를 다시 보면서 이 장면이 인상깊어 유튜브에서 찾아보았는데, 이미 조회수가 200만회가 넘는 동영상들이 여럿 결과로 나왔다.  
 

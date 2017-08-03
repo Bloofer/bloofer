@@ -101,7 +101,7 @@ def convert_rev(page_num):
         md_header.append(markdown.markdown(line.decode('utf-8')))
         if len(md_header) == 3: break
 
-      code_list.append(tuple(("post"+str(n) ,md_header)))
+      code_list.append(tuple(("post"+str(n), md_header)))
 
     return code_list
 
@@ -117,7 +117,7 @@ def convert_rev(page_num):
           md_header.append(markdown.markdown(line.decode('utf-8')))
           if len(md_header) == 3: break
 
-        code_list.append(tuple(("post"+str(n) ,md_header)))
+        code_list.append(tuple(("post"+str(n), md_header)))
 
       return code_list
 

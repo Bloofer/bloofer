@@ -34,7 +34,7 @@
 </br>
   
 **설치 결과(윈도우 10에서의 디스크 파티션 화면)**  
-<img class="img-responsive" src="http://jmyang.kr/static/img/dualboot.jpg">  
+<img class="img-responsive" src="https://jmyang.kr/static/img/dualboot.jpg">  
   
 위와 같이 윈도우 10은 그대로 유지하면서 우분투 파티션이 정상적으로 나누어지게 되었다. 부트로더는 GRUB을 사용하며, 바이오스에서 부팅 우선순위를 우분투에게 주어 컴퓨터가 부팅되었을 때 부트로더인 GRUB이 실행되고, 윈도우와 우분투 중 선택하여 부팅을 시작한다. GRUB에서 윈도우를 선택하였을 경우 윈도우 부트로더를 실행하여 윈도우를 실행시킨다.  
   
