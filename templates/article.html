@@ -14,6 +14,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- Go-to-top CSS -->
+    <link href="{{ url_for('static', filename='css/back-to-top.css') }}" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="{{ url_for('static', filename='css/blog-home.css') }}" rel="stylesheet">
 
@@ -44,7 +47,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/review">소프트웨어 리뷰</a>
+                    <li class="active"><a href="/review">소프트웨어 리뷰</a>
                     </li>
                     <li><a href="/board">아무말 대잔치</a>
                     </li>
@@ -78,6 +81,8 @@
         {% block article %}
         {% endblock %}
 
+        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="맨 위로 가기" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
         <hr>
 
         <!-- Footer -->
@@ -95,6 +100,9 @@
 
     <!-- jQuery -->
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <!-- Go-to-top JavaScript -->
+    <script src="{{ url_for('static', filename='js/back-to-top.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>

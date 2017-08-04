@@ -14,6 +14,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- Go-to-top CSS -->
+    <link href="{{ url_for('static', filename='css/back-to-top.css') }}" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <link href="{{ url_for('static', filename='css/full-width-pics.css') }}" rel="stylesheet">
 
@@ -50,7 +53,7 @@
                     </li>
                     <li><a href="/gallery">사진 갤러리</a>
                     </li>
-                    <li><a href="/profile">프로필</a>
+                    <li class="active"><a href="/profile">프로필</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -82,6 +85,11 @@
       </center>
     </section>
 
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="맨 위로 가기" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+
+    </hr>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -98,6 +106,9 @@
     <!-- jQuery -->
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 
+     <!-- Go-to-top JavaScript -->
+    <script src="{{ url_for('static', filename='js/back-to-top.js') }}"></script>
+   
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
