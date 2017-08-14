@@ -74,6 +74,63 @@ def convert(page_num):
 
       return code_list
 
+def convert_rev_img(page_num):
+
+  import markdown
+  import codecs
+
+  img_list = []
+
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/reviews/'))
+
+  # content number; count all review files 
+  c_num = len(files) 
+
+  # entire page number; count all pages which will be rendered
+  p_num = ((c_num - 1) / 8) + 1
+
+  # last page file number
+  lp_fnum = c_num % 8
+
+  # if having 8 posts on latest page, originally renders 8 posts per page
+  if lp_fnum == 0 :
+    for n in range(8+(8*(p_num-int(page_num))), 0+(8*(p_num-int(page_num))), -1):
+      md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
+      md_header = []
+      for index, line in enumerate(md_file):
+        if index == 0: md_header.append(markdown.markdown(line.decode('utf-8'))); break
+
+      img_list.append(md_header)
+
+    return img_list
+
+  # if not, on the latest page, pulls and gauges the lacking number of files to 8 posts per page
+  else:
+    # on the oldest page
+    if int(page_num) == p_num:
+      # case total page num is 1
+      for n in range(lp_fnum, 0, -1):
+        md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
+        md_header = []
+        for index, line in enumerate(md_file):
+          if index == 0: md_header.append(markdown.markdown(line.decode('utf-8'))); break
+
+        img_list.append(md_header)
+
+      return img_list
+
+    # on the normal page
+    else:
+      for n in range(8+(8*(p_num-int(page_num)))-(8-lp_fnum), 0+(8*(p_num-int(page_num)))-(8-lp_fnum), -1):
+        md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
+        md_header = []
+        for index, line in enumerate(md_file):
+          if index == 0: md_header.append(markdown.markdown(line.decode('utf-8'))); break
+
+        img_list.append(md_header)
+
+      return img_list
+  
 def convert_rev(page_num):
 
   import markdown
@@ -97,8 +154,8 @@ def convert_rev(page_num):
     for n in range(8+(8*(p_num-int(page_num))), 0+(8*(p_num-int(page_num))), -1):
       md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
       md_header = []
-      for line in md_file:
-        md_header.append(markdown.markdown(line.decode('utf-8')))
+      for index, line in enumerate(md_file):
+        if index != 0: md_header.append(markdown.markdown(line.decode('utf-8')))
         if len(md_header) == 3: break
 
       code_list.append(tuple(("post"+str(n), md_header)))
@@ -113,8 +170,8 @@ def convert_rev(page_num):
       for n in range(lp_fnum, 0, -1):
         md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
         md_header = []
-        for line in md_file:
-          md_header.append(markdown.markdown(line.decode('utf-8')))
+        for index, line in enumerate(md_file):
+          if index != 0: md_header.append(markdown.markdown(line.decode('utf-8')))
           if len(md_header) == 3: break
 
         code_list.append(tuple(("post"+str(n), md_header)))
@@ -126,8 +183,8 @@ def convert_rev(page_num):
       for n in range(8+(8*(p_num-int(page_num)))-(8-lp_fnum), 0+(8*(p_num-int(page_num)))-(8-lp_fnum), -1):
         md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
         md_header = []
-        for line in md_file:
-          md_header.append(markdown.markdown(line.decode('utf-8')))
+        for index, line in enumerate(md_file):
+          if index != 0: md_header.append(markdown.markdown(line.decode('utf-8')))
           if len(md_header) == 3: break
 
         code_list.append(tuple(("post"+str(n), md_header)))
@@ -157,8 +214,8 @@ def getLtstFile():
   fnum = len(files)
   md_file = blooferblog.app.open_resource('static/reviews/post'+str(fnum)+'.md')
   md_header = []
-  for line in md_file:
-    md_header.append(markdown.markdown(line.decode('utf-8')))
+  for index ,line in enumerate(md_file):
+    if index != 0: md_header.append(markdown.markdown(line.decode('utf-8')))
     if len(md_header) == 3: break
 
   return tuple(("post"+str(fnum), md_header))

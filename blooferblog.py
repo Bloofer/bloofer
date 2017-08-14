@@ -1,14 +1,39 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, Response
 import flickrphoto 
 import mdparser
 import requests
+import mykey
+from functools import wraps
 
 app = Flask(__name__)
+
+def check_auth(username, password):
+  return username == mykey.name and password == mykey.pwd
+
+def authenticate(name, pwd):
+  return Response(
+  'Could not verify your access level for that URL.\n'+name+pwd+
+  'You have to login with proper credentials', 401, 
+  {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+  @wraps(f)
+  def decorated(*args, **kwargs):
+    auth = request.authorization
+    if not auth or not check_auth(auth.username, auth.password):
+      return authenticate(auth.username, auth.password)
+    return f(*args, **kwargs)
+  return decorated
 
 @app.route('/')
 def home():
   iname, intro = mdparser.getLtstFile()
   return render_template('home.html', iname=iname, intro=intro)
+
+@app.route("/private")
+@requires_auth # requires_auth decorator for basic auth
+def private_page():
+  return "Hello I'm Private!!"
 
 @app.route('/board')
 def board():
@@ -96,7 +121,8 @@ def review_item(page_num):
  
     if (int(page_num) > 0) and (int(page_num) <= pages):
       md_reviews = mdparser.convert_rev(page_num)
-      return render_template('review_item.html', md_reviews=md_reviews, pages=pages, page_n=page_n, page_r=page_r, page_num=int(page_num))
+      md_images = mdparser.convert_rev_img(page_num)
+      return render_template('review_item.html', md_reviews_pair=zip(md_images, md_reviews), pages=pages, page_n=page_n, page_r=page_r, page_num=int(page_num))
     else:
       return render_template('error.html')
 
@@ -106,9 +132,10 @@ def review():
   pages = mdparser.getPages_rev()
   page_n = (pages // 5) + 1
   page_r = pages % 5
-  
+
+  md_images = mdparser.convert_rev_img('1')
   md_reviews = mdparser.convert_rev('1')
-  return render_template('review_item.html', md_reviews=md_reviews, pages=pages, page_n=page_n, page_r=page_r, page_num=1)
+  return render_template('review_item.html', md_reviews_pair=zip(md_images, md_reviews), pages=pages, page_n=page_n, page_r=page_r, page_num=1)
 
 @app.route('/article/<string:aname>')
 def article(aname):

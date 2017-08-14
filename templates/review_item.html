@@ -1,9 +1,15 @@
 {% extends "review.html" %}
 
 {% block reviews %}
-  {% for md_name, md_review in md_reviews %}
+  {% for md_image, (md_name, md_review) in md_reviews_pair %}
   <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-4">
+          {% for line in md_image %}
+              {{ line|safe }}
+          {% endfor %}
+      </div>
+ 
+      <div class="col-lg-8">
           <a href=/article/{{ md_name }}>
           {% for line in md_review %}
               {{ line|safe }}

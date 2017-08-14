@@ -12,7 +12,7 @@
     <title>Bloofer Blog</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
 
     <!-- Go-to-top CSS -->
     <link href="{{ url_for('static', filename='css/back-to-top.css') }}" rel="stylesheet">
@@ -42,14 +42,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Bloofer Blog</a>
+                <a class="navbar-brand" href="/"><img width=30 src="{{ url_for('static', filename='img/bblogo.png') }}" alt=""></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="/review">소프트웨어 리뷰</a>
                     </li>
-                    <li><a href="/board">아무말 대잔치</a>
+                    <li><a href="/board">일상 블로그</a>
                     </li>
                     <li class="active"><a href="/gallery">사진 갤러리</a>
                     </li>

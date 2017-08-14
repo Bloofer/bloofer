@@ -1618,6 +1618,9 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
 }
+.fixed-height {
+  max-height: 100%;
+}
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
 }
@@ -4274,7 +4277,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
+  padding: 13px 15px;
   font-size: 18px;
   line-height: 20px;
 }

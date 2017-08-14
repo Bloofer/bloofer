@@ -2,14 +2,9 @@
 
 {% block remainder %}
 <h4>블로그 만료기간 타이머</h4>
-<hr>
-<p>가상 서버 만료 예정일 - 2017/10/18</p>
+<br>
 <p id="server"></p>
-<hr>
-<p>도메인 만료 예정일 - 2018/07/18</p>
 <p id="domain"></p>
-<hr>
-<p>Let's Encrypt 인증 만료 예정일 - 2017/11/03</p>
 <p id="cert"></p>
 <script>
 var countDownDate1 = new Date("Oct 18, 2017 14:11:00").getTime();
@@ -20,12 +15,12 @@ var x = setInterval(function() {
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("server").innerHTML = days + "일 " + hours + "시간 "
+  document.getElementById("server").innerHTML = "가상서버 - " + days + "일 " + hours + "시간 "
   + minutes + "분 " + seconds + "초 남음";
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("server").innerHTML = "만료됨.";
+    document.getElementById("server").innerHTML = "가상서버 만료됨.";
   }
 }, 1000);
 var countDownDate2 = new Date("Jul 18, 2018 15:48:00").getTime();
@@ -36,12 +31,12 @@ var y = setInterval(function() {
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("domain").innerHTML = days + "일 " + hours + "시간 "
+  document.getElementById("domain").innerHTML = "도메인 - " + days + "일 " + hours + "시간 "
   + minutes + "분 " + seconds + "초 남음";
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(y);
-    document.getElementById("domain").innerHTML = "만료됨.";
+    document.getElementById("domain").innerHTML = "도메인 만료됨.";
   }
 }, 1000);
 var countDownDate3 = new Date("Nov 3, 2017 16:00:00").getTime();
@@ -52,12 +47,12 @@ var z = setInterval(function() {
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("cert").innerHTML = days + "일 " + hours + "시간 "
+  document.getElementById("cert").innerHTML = "보안인증 - " + days + "일 " + hours + "시간 "
   + minutes + "분 " + seconds + "초 남음";
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(z);
-    document.getElementById("cert").innerHTML = "만료됨.";
+    document.getElementById("cert").innerHTML = "보안인증 만료됨.";
   }
 }, 1000);
 
@@ -75,8 +70,10 @@ var z = setInterval(function() {
 {% endblock %}
 
 {% block intro_cont %}
+  <p>
   {% for i in intro %}
     {{ i|safe }}
   {% endfor %}
   <a href=/article/{{ iname }}><p><span class="glyphicon glyphicon-hand-up"></span> 게시글 보러가기</p></a>
+  </p>
 {% endblock %}
