@@ -7,34 +7,36 @@ from functools import wraps
 
 app = Flask(__name__)
 
+# for basic authentication
 def check_auth(username, password):
-  return username == mykey.name and password == mykey.pwd
+   return username == mykey.name and password == mykey.pwd
 
 def authenticate():
-  return Response(
-  'Could not verify your access level for that URL.\n'
-  'You have to login with proper credentials', 401, 
-  {'WWW-Authenticate': 'Basic realm="Login Required"'})
+    return Response(
+    'Could not verify your access level for that URL.\n'
+    'You have to login with proper credentials', 401,
+    {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 def requires_auth(f):
-  @wraps(f)
-  def decorated(*args, **kwargs):
-    auth = request.authorization
-    if not auth or not check_auth(auth.username, auth.password):
-      return authenticate()
-    return f(*args, **kwargs)
-
-  return decorated
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
 
 @app.route('/')
 def home():
   iname, intro = mdparser.getLtstFile()
   return render_template('home.html', iname=iname, intro=intro)
 
-@app.route("/private")
-@requires_auth # requires_auth decorator for basic auth
-def private_page():
-  return "Hello I'm Private!!"
+@app.route('/secret')
+@requires_auth
+def secret_page():
+
+  md_personals = mdparser.convert_prs()
+  return render_template('personal.html', md_personals=md_personals)
 
 @app.route('/board')
 def board():

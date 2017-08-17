@@ -191,6 +191,26 @@ def convert_rev(page_num):
 
       return code_list
 
+def convert_prs():
+
+  import markdown
+  import codecs
+
+  code_list = []
+
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/personal/'))
+  f_num = len(files) 
+
+  for n in range(f_num, 0, -1):
+    md_file = blooferblog.app.open_resource('static/personal/post'+str(n)+'.md')
+    md_header = []
+    for line in md_file:
+      md_header.append(markdown.markdown(line.decode('utf-8')))
+
+    code_list.append(md_header)
+
+  return code_list
+
 def getPages(dir_name):
   path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/'+dir_name+'/'))
   num = len(dirs)

@@ -1,0 +1,15 @@
+{% extends "secret.html" %}
+
+{% block secrets %}
+  {% for md_personal in md_personals %}
+  <div class="row">
+      <div class="col-lg-10">
+          {% for line in md_personal %}
+              {{ line|safe }}
+          {% endfor %}
+      </div>
+  </div>
+  <hr>
+  {% endfor %}
+{% endblock %}
+
