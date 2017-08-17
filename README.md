@@ -23,22 +23,24 @@ ff02::2 ip6-allrouters</code>
   
 <h4>/etc/apache2/sites-enabled/my.route.conf</h4>  
   
-<code><VirtualHost *:80>  
+<code>
+＜VirtualHost *:80＞  
   
   WSGIDaemonProcess routes user=username threads=5  
   WSGIScriptAlias / /home/username/www/routes/routes.wsgi  
   
-  <Directory /home/username/www/routes>  
+  ＜Directory /home/username/www/routes＞  
     WSGIProcessGroup routes  
     WSGIApplicationGroup %{GLOBAL}  
     Require all granted  
   
-  </Directory>  
+  ＜/Directory＞  
   
         ErrorLog ${APACHE_LOG_DIR}/error.log  
         CustomLog ${APACHE_LOG_DIR}/access.log combined  
   
-</VirtualHost></code>  
+＜/VirtualHost＞
+</code>  
   
 *after setting, restart apache2 by 'service apache2 restart'*  
   
@@ -46,6 +48,6 @@ ff02::2 ip6-allrouters</code>
   
 <h2>To resolve flask basic authentication problem(deployed in Apache2 WSGI)</h2>  
   
-<img src="https://jmyang.kr/static/img/auth_conf.jpg">  
+![auth_conf](https://jmyang.kr/static/img/auth_conf.jpg)
   
 <code>WSGIPassAuthorization On</code> line must be inserted in the apache2.conf file. As the picture above, <code>WSGIPassAuthorization On</code> must be put among the directory tag which the application is deployed.
