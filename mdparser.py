@@ -131,14 +131,14 @@ def convert_rev_img(page_num):
 
       return img_list
   
-def convert_rev(page_num):
+def getPagesAll(page_num, dir_name, page_type):
 
   import markdown
   import codecs
 
   code_list = []
 
-  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/reviews/'))
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/'+dir_name+'/'))
 
   # content number; count all review files 
   c_num = len(files) 
@@ -152,11 +152,11 @@ def convert_rev(page_num):
   # if having 8 posts on latest page, originally renders 8 posts per page
   if lp_fnum == 0 :
     for n in range(8+(8*(p_num-int(page_num))), 0+(8*(p_num-int(page_num))), -1):
-      md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
+      md_file = blooferblog.app.open_resource('static/'+dir_name+'/post'+str(n)+'.md')
       md_header = []
       for index, line in enumerate(md_file):
-        if index != 0: md_header.append(markdown.markdown(line.decode('utf-8')))
-        if len(md_header) == 3: break
+        if (index != 0) or (page_type != 'thumbnail'): md_header.append(markdown.markdown(line.decode('utf-8')))
+        if (len(md_header) == 3) and (page_type == 'thumbnail'): break
 
       code_list.append(tuple(("post"+str(n), md_header)))
 
@@ -168,11 +168,11 @@ def convert_rev(page_num):
     if int(page_num) == p_num:
       # case total page num is 1
       for n in range(lp_fnum, 0, -1):
-        md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
+        md_file = blooferblog.app.open_resource('static/'+dir_name+'/post'+str(n)+'.md')
         md_header = []
         for index, line in enumerate(md_file):
-          if index != 0: md_header.append(markdown.markdown(line.decode('utf-8')))
-          if len(md_header) == 3: break
+          if (index != 0) or (page_type != 'thumbnail'): md_header.append(markdown.markdown(line.decode('utf-8')))
+          if (len(md_header) == 3) and (page_type == 'thumbnail'): break
 
         code_list.append(tuple(("post"+str(n), md_header)))
 
@@ -181,11 +181,11 @@ def convert_rev(page_num):
     # on the normal page
     else:
       for n in range(8+(8*(p_num-int(page_num)))-(8-lp_fnum), 0+(8*(p_num-int(page_num)))-(8-lp_fnum), -1):
-        md_file = blooferblog.app.open_resource('static/reviews/post'+str(n)+'.md')
+        md_file = blooferblog.app.open_resource('static/'+dir_name+'/post'+str(n)+'.md')
         md_header = []
         for index, line in enumerate(md_file):
-          if index != 0: md_header.append(markdown.markdown(line.decode('utf-8')))
-          if len(md_header) == 3: break
+          if (index != 0) or (page_type != 'thumbnail'): md_header.append(markdown.markdown(line.decode('utf-8')))
+          if (len(md_header) == 3) and (page_type == 'thumbnail'): break
 
         code_list.append(tuple(("post"+str(n), md_header)))
 
@@ -216,8 +216,8 @@ def getPages(dir_name):
   num = len(dirs)
   return num
 
-def getPages_rev():
-  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/reviews/'))
+def getPageNum(dir_name):
+  path, dirs, files = next(os.walk('/home/jmyang/www/blooferblog/static/'+dir_name+'/'))
   fnum = len(files)
   num = ((fnum - 1) / 8) + 1
   return num

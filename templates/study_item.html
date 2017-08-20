@@ -1,0 +1,81 @@
+{% extends "study.html" %}
+
+{% block study %}
+  {% for md_name, md_writing in md_writings %}
+  <div class="row">
+      <div class="col-lg-12">
+          {% for line in md_writing %}
+              {{ line|safe }}
+          {% endfor %}
+      </div>
+  </div>
+  <hr>
+  {% endfor %}
+{% endblock %}
+
+{% block paging %}
+  {% if (((page_num-1) // 5) + 1) < page_n  %}
+
+    {% if page_num <= 5 %}
+      <li>
+        <a href="#">&laquo;</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="/board/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+      </li>
+    {% endif %}
+
+    {% for p in range( (((page_num-1)//5)*5)+1, (((page_num-1)//5)*5)+6 ) %}
+      {% if p == page_num %}
+        <li class="active">
+          <a href="#">{{ p }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="/board/{{ p }}">{{ p }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {% if pages > ((((page_num-1)//5)+1)*5) %}
+      <li>
+        <a href="/board/{{ ((((page_num-1)//5)+1)*5)+1 }}">&raquo;</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="#">&raquo;</a>
+      </li>
+    {% endif %}
+
+  {% else %}
+
+    {% if page_num <= 5 %}
+      <li>
+        <a href="#">&laquo;</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="/board/{{ ((page_num-1) // 5) * 5 }}">&laquo;</a>
+      </li>
+    {% endif %}
+
+    {% for p in range( (((page_num-1)//5)*5)+1, pages+1 ) %}
+      {% if p == page_num %}
+        <li class="active">
+          <a href="#">{{ p }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="/board/{{ p }}">{{ p }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    <li>
+      <a href="#">&raquo;</a>
+    </li>
+
+  {% endif %}
+{% endblock %}
+~

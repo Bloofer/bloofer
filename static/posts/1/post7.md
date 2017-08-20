@@ -8,5 +8,5 @@
 
 <img class="img-responsive" src="https://jmyang.kr/static/img/auth_conf.jpg">
   
-위 그림과 같이 설정파일에서 웹 앱이 디플로이 된 디렉토리 태그 내에 <code>WSGIPassAuthorization On</code> 이 한 줄을 추가해주면 된다. 스택 오버플로우나 여럿 포럼에서 찾아본 결과 나와 같은 현상을 겪은 사용자들이 많았다. 대부분 이에 대한 해결책으로 <code>/etc/apache2/sites-enabled</code> 디렉토리 안에 설정파일에 WSGI 인증 설정을 추가하라는 이야기가 있었지만 나에게는 소용이 없었다. 아파치2 WSGI으로 디플로이 된 내 파이썬 플라스크 웹 앱은 이 방법이 되더라.
+위 그림과 같이 설정파일에서 웹 앱이 디플로이 된 디렉토리 태그 내에 <code>WSGIPassAuthorization On</code> 한 줄을 추가해주면 된다. 스택 오버플로우나 여러 포럼에서 찾아본 결과 나와 같은 현상을 겪은 사용자들이 많았다. 대부분 이에 대한 해결책으로 <code>/etc/apache2/sites-enabled</code> 디렉토리 안의 설정파일에 WSGI 인증 설정을 추가하라는 이야기가 있었지만 나에게는 소용이 없었다. 아파치2 WSGI으로 디플로이 된 내 파이썬 플라스크 웹 앱은 이 방법이 해결책이 되었다.
 
