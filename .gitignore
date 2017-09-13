@@ -6,3 +6,6 @@ mykey.py
 
 # apache2 wsgi file
 routes.wsgi
+
+# my personal page
+static/personal/
