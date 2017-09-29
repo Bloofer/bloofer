@@ -67,6 +67,16 @@
         <!-- /.container -->
     </nav>
 
+    <section class="py-5 bg-image-full" style="background-image: url('https://jmyang.kr/static/img/sky.jpg');">
+      <div style="height: 800px;">
+      </div>
+    </section>
+
+    <section>
+      <div style="height: 40px;">
+      </div>
+    </section>
+
     <!-- Page Content -->
     <div class="container">
 
@@ -75,9 +85,9 @@
             <!-- Blog Entries Column -->
             <div class="col-md-7">
 
-                <h3 class="page-header">
+                <h2 class="page-header">
                     Bloofer Blog에 오신 것을 환영합니다!
-                </h3>
+                </h2>
 
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Carousel indicators -->
@@ -135,14 +145,8 @@
                 </a>
               </div>
 
-              <div>
-                </br> 
+              <div style="height: 120px;">
               </div>
-
-            </div>
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-5">
 
                 <div class="well">
                   <!-- Latest Blog Post -->
@@ -151,14 +155,14 @@
                   {% endblock %}
                 </div>
 
-                <!-- Blog Categories Well -->
+              <!-- Blog Categories Well -->
                 <div class="well">
                     <p>
                       {% block remainder %}
                       {% endblock %}
                     </p>
                 </div>
-
+ 
                 <!-- Side Widget Well -->
                 <div class="well">
                     <p>
@@ -169,8 +173,13 @@
 
             </div>
 
+            <div class="col-md-5">
+                <img class="img-responsive" src="https://jmyang.kr/static/img/tree_black.jpg"> 
+            </div>
+
         </div>
         <!-- /.row -->
+
 
         <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="맨 위로 가기" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
@@ -180,15 +189,19 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Joonmo Yang 2017</p>
+                    <p> Copyright &copy; Joonmo Yang 2017</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
         </footer>
-
     </div>
     <!-- /.container -->
+
+    <section class="py-5 bg-image-full" style="background-image: url('https://jmyang.kr/static/img/sand.jpg');">
+      <div style="height: 500px;">
+      </div>
+    </section>
 
     <!-- jQuery -->
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
