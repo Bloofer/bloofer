@@ -53,7 +53,7 @@ def convert(page_num):
 
     # pages neither first(latest), nor last(oldest). (middle pages)
     elif (int(p_num) < getPages('posts')) and (int(p_num) > 1):
-      for n in range((lp_fnum+1),0,-1):
+      for n in range((lp_fnum),0,-1):
         md_file = blooferblog.app.open_resource('static/posts/'+str(p_num)+'/post'+str(n)+'.md')
         u_mdfile = md_file.read().decode('utf-8')
         code_list.append(markdown.markdown(u_mdfile))
