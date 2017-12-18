@@ -3,21 +3,21 @@ this repository sets up [Bloofer Blog](http://jmyang.kr)
 
 ## Blog Outline  
 <img class="img-responsive" src="https://jmyang.kr/static/img/main.jpg">  
-*Blog main page*  
-  
+<i>Blog main page</i>  
+</br>  
 <img class="img-responsive" src="https://jmyang.kr/static/img/rev.jpg">  
-<img class="img-responsive" src="https://jmyang.kr/static/img/study.jpg">      
+<img class="img-responsive" src="https://jmyang.kr/static/img/std.jpg">      
 <img class="img-responsive" src="https://jmyang.kr/static/img/blog.jpg">  
-*Blog posts as markdown pages (Jekyll style)*  
-  
+<i>Blog posts as markdown pages (Jekyll style)</i>  
+</br>  
 <img class="img-responsive" src="https://jmyang.kr/static/img/photo.jpg">  
-*Blog photos using outside Flickr image server*  
+<i>Blog photos using outside Flickr image server</i>  
   
 </hr>
  
 ## Troubleshooting
 
-<h2>To set config files for apache2 using flask framework</h2>  
+<h3>To set config files for apache2 using flask framework</h3>  
   
 <h4>/home/username/www/routes/routes.wsgi</h4>  
   
@@ -59,7 +59,7 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
   
 </hr>  
   
-<h2>To resolve flask basic authentication problem(deployed in Apache2 WSGI)</h2>  
+<h3>To resolve flask basic authentication problem(deployed in Apache2 WSGI)</h3>  
   
 ![auth_conf](https://jmyang.kr/static/img/auth_conf.jpg)
   
