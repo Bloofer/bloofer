@@ -1,8 +1,22 @@
 # Bloofer Blog  
 this repository sets up [Bloofer Blog](http://jmyang.kr)  
+
+## Blog Outline  
+<img class="img-responsive" src="https://jmyang.kr/static/img/main.jpg">  
+*Blog main page*  
+  
+<img class="img-responsive" src="https://jmyang.kr/static/img/rev.jpg">  
+<img class="img-responsive" src="https://jmyang.kr/static/img/study.jpg">      
+<img class="img-responsive" src="https://jmyang.kr/static/img/blog.jpg">  
+*Blog posts as markdown pages (Jekyll style)*  
+  
+<img class="img-responsive" src="https://jmyang.kr/static/img/photo.jpg">  
+*Blog photos using outside Flickr image server*  
   
 </hr>
-  
+ 
+## Troubleshooting
+
 <h2>To set config files for apache2 using flask framework</h2>  
   
 <h4>/home/username/www/routes/routes.wsgi</h4>  
