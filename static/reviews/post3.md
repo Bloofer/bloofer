@@ -1,4 +1,4 @@
-<img width=400 class="img-thumbnail" src="https://cdn-1.wp.nginx.com/wp-content/uploads/2016/02/letsencrypt-logo_0.png">  
+<img width=400 class="img-thumbnail" src="https://jmyang.kr/static/img/letsencrypt_logo.png">  
 ## Let's Encrypt SSL/TLS 인증  
 #### 개인 홈페이지를 HTTPS로 보안 연결해보자!  
   
