@@ -4,16 +4,20 @@ this repository sets up [Bloofer Blog](http://jmyang.kr)
 ## Blog Outline  
 <img class="img-responsive" src="https://jmyang.kr/static/img/main.jpg">  
 <i>Blog main page</i>  
-</br>  
+  
+</br></br>  
+  
 <img class="img-responsive" src="https://jmyang.kr/static/img/rev.jpg">  
 <img class="img-responsive" src="https://jmyang.kr/static/img/std.jpg">      
 <img class="img-responsive" src="https://jmyang.kr/static/img/blog.jpg">  
 <i>Blog posts as markdown pages (Jekyll style)</i>  
-</br>  
+  
+</br></br>  
+  
 <img class="img-responsive" src="https://jmyang.kr/static/img/photo.jpg">  
 <i>Blog photos using outside Flickr image server</i>  
   
-</hr>
+</br></br></hr>
  
 ## Troubleshooting
 
