@@ -2,19 +2,19 @@
 this repository sets up [Bloofer Blog](http://jmyang.kr)  
 
 ## Blog Outline  
-<img class="img-responsive" src="https://jmyang.kr/static/img/main.jpg">  
+<img class="img-responsive" src="https://raw.githubusercontent.com/Bloofer/bloofer_www/master/static/img/main.jpg">  
 <i>Blog main page</i>  
   
 </br></br>  
   
-<img class="img-responsive" src="https://jmyang.kr/static/img/rev.jpg">  
-<img class="img-responsive" src="https://jmyang.kr/static/img/std.jpg">      
-<img class="img-responsive" src="https://jmyang.kr/static/img/blog.jpg">  
+<img class="img-responsive" src="https://raw.githubusercontent.com/Bloofer/bloofer_www/master/static/img/rev.jpg">  
+<img class="img-responsive" src="https://raw.githubusercontent.com/Bloofer/bloofer_www/master/static/img/std.jpg">      
+<img class="img-responsive" src="https://raw.githubusercontent.com/Bloofer/bloofer_www/master/static/img/blog.jpg">  
 <i>Blog posts as markdown pages (Jekyll style)</i>  
   
 </br></br>  
   
-<img class="img-responsive" src="https://jmyang.kr/static/img/photo.jpg">  
+<img class="img-responsive" src="https://raw.githubusercontent.com/Bloofer/bloofer_www/master/static/img/photo.jpg">  
 <i>Blog photos using outside Flickr image server</i>  
   
 </br></br></hr>
@@ -65,6 +65,6 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
   
 <h3>To resolve flask basic authentication problem(deployed in Apache2 WSGI)</h3>  
   
-![auth_conf](https://jmyang.kr/static/img/auth_conf.jpg)
+![auth_conf](https://raw.githubusercontent.com/Bloofer/bloofer_www/master/static/img/auth_conf.jpg)
   
 <code>WSGIPassAuthorization On</code> line must be inserted in the apache2.conf file. As the picture above, <code>WSGIPassAuthorization On</code> must be put among the directory tag which the application is deployed.
