@@ -1,5 +1,5 @@
 # Bloofer Blog  
-this repository sets up [Bloofer Blog](http://jmyang.kr)  
+this repository sets up Bloofer Blog
 
 ## Blog Outline  
 <img class="img-responsive" src="https://raw.githubusercontent.com/Bloofer/bloofer_www/master/static/img/main.jpg">  
